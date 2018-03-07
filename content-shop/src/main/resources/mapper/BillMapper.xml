@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http:// mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.netease.yanxuan.dao.BillMapper">
+    <select id="getBuyPrice" resultType="int" parameterType="int">
+        select buyPrice from bill where content_id=#{contentId}
+    </select>
+    <insert id="add" parameterType="com.netease.yanxuan.meta.Bill" >
+        insert into Bill(content_id,count,buyPrice) values(#{contentId},#{count},#{buyPrice})
+    </insert>
+    <select id="getBillView" resultType="com.netease.yanxuan.meta.BillView">
+        select img,title,buyPrice,buyDate,count ,b.content_id as contentId from bill b
+        left join content c on b.content_id=c.id
+    </select>
+</mapper>

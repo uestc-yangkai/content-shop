@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http:// mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.netease.yanxuan.dao.ShopCarMapper">
+<select id="getShopCarAll" resultType="com.netease.yanxuan.meta.ShopCar">
+ select *from shopcar
+</select>
+ <insert id="addShopCar" parameterType="int">
+  insert into shopcar(content_id,count) values(#{contentId},1)
+ </insert>
+ <update id="updateCount" parameterType="map">
+  update shopcar set count=#{count} where content_id=#{contentId}
+ </update>
+ <delete id="deleteShopCar" parameterType="int">
+  delete from shopcar where id=#{id}
+ </delete>
+ <select id="getCarViewList" resultType="com.netease.yanxuan.meta.ShopCarView">
+    select title ,currentPrice ,content_id ,count,img from shopcar s
+    left join content c  on c.id=s.content_id
+ </select>
+ <select id="findCountByContentId" resultType="integer" parameterType="int">
+   select count from shopcar where content_id=#{contentId}
+ </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http:// mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.netease.yanxuan.dao.ContentMapper">
+    <select id="getContentList" resultType="com.netease.yanxuan.meta.Content">
+        select  id,title ,summary,body ,img,currentPrice,mark  from content
+    </select>
+    <select id="getNotbuyContentList" resultType="com.netease.yanxuan.meta.Content">
+        select id,title ,summary,body ,img,currentPrice,mark from content where mark=0
+    </select>
+    <select id="getBuyedCount" resultType="int">
+        select count(*) from content where mark>0
+    </select>
+    <delete id="deleteContent" parameterType="int">
+        delete from content where id = #{contentId}
+    </delete>
+    <select id="getContent" parameterType="int" resultType="com.netease.yanxuan.meta.Content">
+        select  id ,title ,summary,body,img,mark,currentPrice from content where id=#{contentId}
+    </select>
+    <update id="updateContent" parameterType="com.netease.yanxuan.meta.Content" >
+        update content set title=#{title},img=#{img},summary=#{summary},body=#{body},currentPrice=#{currentPrice}  where id=#{id}
+    </update>
+    <insert id="addContent" parameterType="com.netease.yanxuan.meta.Content" useGeneratedKeys="true" keyProperty="id">
+        insert into content(title,img,summary,body,mark,currentPrice)
+        values(#{title},#{img},#{summary},#{body},#{mark},#{currentPrice})
+    </insert>
+    <select id="getMarkById" parameterType="int" resultType="int">
+        select mark from content where id=#{contentId}
+    </select>
+    <select id="getContentView" parameterType="int" resultType="com.netease.yanxuan.meta.ContentView">
+        select  c.id ,title ,summary,body,img,mark ,currentPrice,buyPrice from content  c
+        left join bill b on c.id=b.content_id
+        where c.id=#{contentId} limit 0,1
+    </select>
+    <update id="updateMark" parameterType="int">
+        update content set mark=1 where id=#{contentId};
+    </update>
+    <select id="getSumContent" resultType="int">
+        select count(*) from content
+    </select>
+
+</mapper>
