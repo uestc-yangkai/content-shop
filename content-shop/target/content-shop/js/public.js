@@ -5,9 +5,9 @@
 	}
 	var title = form['title'];
 	var summary = form['summary'];
-	var image = form['image'];
-	var detail = form['detail'];
-	var price = form['price'];
+	var image = form['img'];
+	var detail = form['body'];
+	var price = form['currentPrice'];
 	var isSubmiting = false;
 	var imgpre = util.get('imgpre');
 	var loading = new Loading();
@@ -37,7 +37,8 @@
 			[
 				[title,function(value){return value.length<2 || value.length>80}],
 				[summary,function(value){return value.length<2 || value.length>140}],
-				[image,function(value){return value == '' || !(/^(http|https):\/\//.test(value) && /\.(jpg|gif|png)$/.test(value))}],
+				//[image,function(value){return value == '' || !(/^(http|https):\/\//.test(value) && /\.(jpg|gif|png)$/.test(value))}],
+				[image,function(value){return value == '' || !(/\.(jpg|gif|png)/.test(value))}],
 				[detail,function(value){return value.length<2 || value.length>1000}],
 				[price,function(value){return value == '' || !Number(value)}]
 			].forEach(function(item){

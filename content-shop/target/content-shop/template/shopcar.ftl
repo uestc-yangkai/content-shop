@@ -11,9 +11,9 @@
             </div>
         <#else>
                 <table class="m-table m-table-row n-table g-b3">
-                    <colgroup><col/><col class="time"/><col class="price"/><col class="price"/></colgroup>
+                    <colgroup><col/><col class="time"/><col class="price"/><col class="price"/><col class="price"/></colgroup>
                     <thead>
-                    <tr><th>内容名称</th><th>当前价格</th><th>购买数量</th></tr>
+                    <tr><th>内容名称</th><th>当前价格</th><th>购买数量</th><th>操作</th></tr>
                     </thead>
                     <tbody>
                     <#list shopcar as x>
@@ -22,6 +22,7 @@
                         <td><h4><a href="/show?id=${x.content_id}">${x.title!""}</a></h4></td>
                         <td><span class="v-unit">¥</span><span class="value">${x.currentPrice!0}</span></td>
                         <td><span class="v-unit"></span><span class="value">${x.count!0}</span></td>
+                        <td><span class="v-unit"></span><span class="value"><a href="/shopcar/delete?id=${x.id}">删除</a></span></td>
                     </tr>
                     </#list>
                     </tbody>

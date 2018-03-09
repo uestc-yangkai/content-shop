@@ -24,7 +24,8 @@
                     <span class="u-btn u-btn-primary z-dis">已购买</span>
                     <span class="buyprice">当时购买价格：¥${product.buyPrice}</span>
                     <#else>
-                    <a href="/shopcar/add?id=${product.id}"><button class="u-btn u-btn-primary" data-buy="${product.id}">购 买</button></a>
+                    <#--<a href="/shopcar/add?id=${product.id}"><button class="u-btn u-btn-primary" data-buy="${product.id}">购 买</button></a>-->
+                        <button class="u-btn u-btn-primary" data-buy="${product.id}">购 买</button>
                     </#if>
                 </#if>
                 <#if user?? && (user.userType==1)>

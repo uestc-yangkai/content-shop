@@ -4,7 +4,7 @@
         <#if user?exists>
             <#if user.userType==1>卖家<#else>买家</#if>你好，<span class="name">${user.userName}</span>！<a href="/logout">[退出]</a>
         <#else>
-            请<a href="/loginForm">[登录]</a>
+            请<a href="/loginTable">[登录]</a>
         </#if>
         </div>
         <ul class="nav">

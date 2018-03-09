@@ -10,6 +10,16 @@ public class User {
     private int userType;
     public User(){};
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", userType=" + userType +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

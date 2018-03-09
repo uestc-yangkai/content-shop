@@ -96,11 +96,23 @@ public class ContentController {
         }
         return "editSubmit";
     }
+
+    /**
+     *
+     * @param contentId
+     * @param model
+     * @param request
+     * @param response
+     * @return  返回json字符串，code=200表示成功
+     */
     @RequestMapping(value = "/content/delete",method = RequestMethod.GET)
     @ResponseBody
-    public void deleteContent(@RequestParam("id") Integer contentId,Model model,HttpServletRequest request,HttpServletResponse response){
+    public Map deleteContent(@RequestParam("id") int contentId,Model model,HttpServletRequest request,HttpServletResponse response){
         System.out.println(contentId);
         boolean flag=contentService.deleteContent(contentId);
+        Map map=new HashMap<String,String>();
+        map.put("code","200");
+        return map;
     }
 
 }

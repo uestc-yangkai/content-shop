@@ -23,8 +23,9 @@
 					layer.hide();
 					loading.show();
 					ajax({
-						url:'/api/delete',
+						url:'/content/delete',
 						data:{id:id},
+						type:'GET',
 						success:function(json){
 							this.delItemNode(id);
 							loading.result('删除成功');

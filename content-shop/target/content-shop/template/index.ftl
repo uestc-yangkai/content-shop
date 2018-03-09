@@ -43,8 +43,8 @@
                         <#if user?exists && (user.userType==0) && (x.mark>0)><span class="had"><b>已购买</b></span></#if>
                         <#if user?exists && (user.userType==1) && (x.mark>0)><span class="had"><b>已售出</b></span></#if>
                     </a>
-                    <#--<#if user?? && user.userType==1 && (x.mark==0)><span  class="u-btn u-btn-normal u-btn-xs del" data-del="${x.id}">删除</span></#if>-->
-                    <#if user?? && user.userType==1 && (x.mark==0)><span  class="u-btn u-btn-normal u-btn-xs " onclick="deleteFun(${x.id})">删除</span></#if>
+                    <#if user?? && user.userType==1 && (x.mark==0)><span  class="u-btn u-btn-normal u-btn-xs del" data-del="${x.id}">删除</span></#if>
+                    <#--<#if user?? && user.userType==1 && (x.mark==0)><span  class="u-btn u-btn-normal u-btn-xs " onclick="deleteFun(${x.id})">删除</span></#if>-->
                 </li>
             </#list>
         </#if>
@@ -53,20 +53,20 @@
     </#if>
 </div>
 <#include "./include/footer.ftl">
-<script type="text/javascript">
-    function deleteFun(id){
-        $.ajax({
-            url:'/content/delete?id='+id,
-            type:'get',
-            data:null,
-            success:function (arg) {
-                window.alert("删除成功");
-                window.location.href="/";
-            }
-        });
-    }
-</script>
-<script src="https://code.jquery.com/jquery.js"></script>
+<#--<script type="text/javascript">-->
+    <#--function deleteFun(id){-->
+        <#--$.ajax({-->
+            <#--url:'/content/delete?id='+id,-->
+            <#--type:'get',-->
+            <#--data:null,-->
+            <#--success:function (arg) {-->
+                <#--window.alert("删除成功");-->
+                <#--window.location.href="/";-->
+            <#--}-->
+        <#--});-->
+    <#--}-->
+<#--</script>-->
+<#--<script src="https://code.jquery.com/jquery.js"></script>-->
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/pageIndex.js"></script>
 

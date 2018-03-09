@@ -4,7 +4,7 @@
 		return;
 	}
 	var userName = loginForm['userName'];
-	var password = loginForm['password'];
+	var password = loginForm['passWord'];
 	var isSubmiting = false;
 	var loading = new Loading();
 	var page = {
@@ -16,11 +16,12 @@
 					isSubmiting = true;
 					loading.show();
 					ajax({
-						data:{userName:value1,password:value2},
-						url:'/api/login',
+						data:{userName:value1,passWord:value2},
+						type:'post',
+						url:'/login',
 						success:function(result){
 							loading.hide();
-							location.href = '/';
+							window.location.href='/';
 						},
 						error:function(message){
 							loading.result(message||'登录失败');

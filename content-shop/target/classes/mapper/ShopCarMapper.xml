@@ -14,7 +14,7 @@
   delete from shopcar where id=#{id}
  </delete>
  <select id="getCarViewList" resultType="com.netease.yanxuan.meta.ShopCarView">
-    select title ,currentPrice ,content_id ,count,img from shopcar s
+    select s.id ,title ,currentPrice ,content_id ,count,img from shopcar s
     left join content c  on c.id=s.content_id
  </select>
  <select id="findCountByContentId" resultType="integer" parameterType="int">

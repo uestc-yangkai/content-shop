@@ -35,5 +35,9 @@ public class ShopCarService {
 //        return i>0;
         return true;
     }
+    public boolean delete(int id){
+        int i=shopCarMapper.deleteShopCar(id);
+        return i>0;
+    }
 
 }

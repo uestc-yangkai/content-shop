@@ -33,5 +33,5 @@ CREATE TABLE `bill` (
    `buyDate` TIMESTAMP ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-insert into user(userName,passWord) values('buyer','reyub');
-insert into user(userName,passWord,userType) values('seller','relles',1);
+insert into user(userName,passWord) values('buyer','37254660e226ea65ce6f1efd54233424');
+insert into user(userName,passWord,userType) values('seller','981c57a5cfb0f868e064904b8745766f',1);
