@@ -12,7 +12,7 @@
 				var buy = ele && ele.dataset.buy;
 				if(buy){
 					layer.reset({
-						content:'确认购买本内容吗？',
+						content:'确认加入购物车吗？',
 						onconfirm:function(){
 							layer.hide();
 							loading.show();
@@ -20,10 +20,10 @@
 								data:{id:buy},
 								url:'/shopcar/add',
 								success:function(result){
-									loading.result('购买成功',function(){location.href = '/bill';});
+									loading.result('加入购物车成功',function(){location.href = '/shopcar';});
 								},
 								error:function(message){
-									loading.result(message||'购买失败');
+									loading.result(message||'加入购物车失败');
 								}
 							});
 						}.bind(this)

@@ -30,7 +30,7 @@
                 <tr>
                     <td colspan="1"><div class="total">总计：</div></td>
                     <td><span class="v-unit">¥</span><span class="value">${total}</span></td>
-                    <td><span class="v-unit"></span><a href="/bill/add"><span class="value">购买</span></a></td>
+                    <td><span class="v-unit"></span><a href="/bill/add"><span class="u-btn u-btn-primary">购买</span></a></td>
                 </tr>
                 </tfoot>
             </table>
